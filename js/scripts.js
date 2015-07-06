@@ -37,13 +37,13 @@ $(document).ready(function() {
     bio.eric = {
         name: "Eric Blanchard",
         role: "Captain",
-        bio: "Eric like cake",
+        bio: "Eric likes cake",
         pic: 'http://media.giphy.com/media/ToMjGpGNs70xbxTuiBy/giphy.gif'
     }
     bio.wahid = {
             name: "Wahid Shafique",
             role: "Something",
-            bio: "Wahid hates everything",
+            bio: "Wahid hates everything, except Macs, he loves Macs",
             pic: 'http://media0.giphy.com/media/hwYoFWW6DIuYM/giphy.gif'
         }
         // When you click on the class of learn more display the sidebar with the information pulled from an object
