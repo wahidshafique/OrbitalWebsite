@@ -11,7 +11,7 @@ $(document).ready(function() {
             nav.button.on('click', function() {
                 nav.button.toggleClass('active');
                 overlay.background.fadeToggle(1000);
-                overlay.list.slideToggle(1100);
+                overlay.list.delay(100).slideToggle(1000);
             });
         }
         // Calling the listener
@@ -52,7 +52,10 @@ $(document).ready(function() {
             e.preventDefault();
             $('body').addClass('stopScrolling');
             // Displays Overlay
-            bio.bioOverlay.fadeIn(500);
+            bio.bioOverlay.show();
+            bio.bioOverlay.addClass('fadeIn').one('animationend', function() {
+                $(this).removeClass('fadeIn');
+            });
             // Adding the animation class
             bio.sideBar.addClass('bioSideBarOpen').one('animationend', function() {
                 // When the animation is finished it will remove to class
@@ -78,17 +81,47 @@ $(document).ready(function() {
         bio.smallBio.text(bio.james['bio']);
     });
     $('.eric .learnMore').on('click', bio.showBio(), function() {
-    		bio.headShot.attr('src',bio.eric['pic']);
+        bio.headShot.attr('src', bio.eric['pic']);
         bio.memberName.text(bio.eric['name']);
         bio.memberRole.text(bio.eric['role']);
         bio.smallBio.text(bio.eric['bio']);
     });
     $('.wahid .learnMore').on('click', bio.showBio(), function() {
-    		bio.headShot.attr('src',bio.wahid['pic']);
+        bio.headShot.attr('src', bio.wahid['pic']);
         bio.memberName.text(bio.wahid['name']);
         bio.memberRole.text(bio.wahid['role']);
         bio.smallBio.text(bio.wahid['bio']);
     });
 
     // Calling show bio
+    form = {};
+    form.emailButton = $('.emailButton');
+    form.container = $('.emailForm');
+    form.content = $('.formContainer')
+    form.close = $('.formClose');
+    // Caching the vars
+    form.emailButton.on('click', function(e) {
+        e.preventDefault();
+        form.container.show()
+        form.container.addClass('fadeIn').one('animationend', function() {
+            $(this).removeClass('fadeIn');
+        });
+        form.content.addClass('formOpeningAnimated').one('animationend', function() {
+            $(this).removeClass('formOpeningAnimated');
+        });
+        $('body').addClass('stopScrolling');
+    });
+    // Form opening end
+    form.close.on('click', function(e) {
+        e.preventDefault();
+        form.content.addClass('formClosingAnimated').one('animationend', function() {
+            $(this).removeClass('formClosingAnimated');
+        });
+        form.container.addClass('fadeOut').one('animationend', function(){
+            $(this).removeClass('fadeOut');
+            $(this).hide();
+        });
+        $('body').removeClass('stopScrolling');
+    });
 });
+// Document Ready end
