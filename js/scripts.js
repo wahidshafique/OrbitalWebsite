@@ -9,9 +9,10 @@ $(document).ready(function() {
     // Function for navs click behavior
     nav.clickMe = function() {
             nav.button.on('click', function() {
-                nav.button.toggleClass('active');
+                $('body').toggleClass('stopScrolling'); 
                 overlay.background.fadeToggle(1000);
                 overlay.list.delay(100).slideToggle(1000);
+
             });
         }
         // Calling the listener
