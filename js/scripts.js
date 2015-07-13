@@ -12,6 +12,7 @@ $(document).ready(function() {
                 $('body').toggleClass('stopScrolling'); 
                 overlay.background.fadeToggle(1000);
                 overlay.list.delay(100).slideToggle(1000);
+                overlay.list.css('transform', 'translateZ(0)');
 
             });
         }
@@ -33,19 +34,19 @@ $(document).ready(function() {
         name: "James Barzegar",
         role: "Web Developer",
         bio: "James likes pie",
-        pic: 'http://gifrific.com/wp-content/uploads/2013/08/Eddie-Murphy-A-Ok-Reaction.gif'
+        pic: 'http://www.placecage.com/200/300'
     }
     bio.eric = {
         name: "Eric Blanchard",
         role: "Captain",
         bio: "Eric likes cake",
-        pic: 'http://media.giphy.com/media/ToMjGpGNs70xbxTuiBy/giphy.gif'
+        pic: 'http://www.placecage.com/200/300'
     }
     bio.wahid = {
             name: "Wahid Shafique",
             role: "Something",
             bio: "Wahid hates everything, except Macs, he loves Macs",
-            pic: 'http://media0.giphy.com/media/hwYoFWW6DIuYM/giphy.gif'
+            pic: 'http://www.placecage.com/200/300'
         }
         // When you click on the class of learn more display the sidebar with the information pulled from an object
     bio.showBio = function() {
@@ -115,9 +116,9 @@ $(document).ready(function() {
     // Form opening end
     form.close.on('click', function(e) {
         e.preventDefault();
-        form.content.addClass('formClosingAnimated').one('animationend', function() {
+        form.content.addClass('formClosingAnimated').one('animationend', function(){
             $(this).removeClass('formClosingAnimated');
-        });
+        })
         form.container.addClass('fadeOut').one('animationend', function(){
             $(this).removeClass('fadeOut');
             $(this).hide();
