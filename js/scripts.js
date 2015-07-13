@@ -9,9 +9,9 @@ $(document).ready(function() {
     // Function for navs click behavior
     nav.clickMe = function() {
             nav.button.on('click', function() {
-                $('body').toggleClass('stopScrolling'); 
-                overlay.background.fadeToggle(1000);
-                overlay.list.delay(100).slideToggle(1000);
+                $('body').toggleClass('stopScrolling');
+                overlay.background.fadeToggle(500);
+                // overlay.list.slideToggle(1000);
                 overlay.list.css('transform', 'translateZ(0)');
 
             });
@@ -116,10 +116,10 @@ $(document).ready(function() {
     // Form opening end
     form.close.on('click', function(e) {
         e.preventDefault();
-        form.content.addClass('formClosingAnimated').one('animationend', function(){
+        form.content.addClass('formClosingAnimated').one('animationend', function() {
             $(this).removeClass('formClosingAnimated');
         })
-        form.container.addClass('fadeOut').one('animationend', function(){
+        form.container.addClass('fadeOut').one('animationend', function() {
             $(this).removeClass('fadeOut');
             $(this).hide();
         });
