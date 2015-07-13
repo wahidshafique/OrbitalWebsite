@@ -1,11 +1,18 @@
 // Stuff for nav
 $(document).ready(function() {
+    $('.navContent a').smoothScroll({
+        offset: -20,
+        autoCoefficient: 2,
+        ease: 'ease-out',
+        speed: 1000
+    });
     nav = {};
     nav.button = $('.navButton');
     // Overlay stuff
     overlay = {};
     overlay.background = $('.overlay');
     overlay.list = $('.navContent li');
+    nav.listItem = $('.navContent a');
     // Function for navs click behavior
     nav.clickMe = function() {
             nav.button.on('click', function() {
@@ -13,11 +20,14 @@ $(document).ready(function() {
                 overlay.background.fadeToggle(500);
                 // overlay.list.slideToggle(1000);
                 overlay.list.css('transform', 'translateZ(0)');
-
             });
         }
         // Calling the listener
     nav.clickMe();
+    nav.listItem.on('click', function() {
+        $('body').removeClass('stopScrolling');
+        overlay.background.fadeToggle(0);
+    });
     // Stuff for nav end
     bio = {};
     // Cache variables 
