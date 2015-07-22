@@ -65,11 +65,11 @@ $(document).ready(function() {
             $('body').addClass('stopScrolling');
             // Displays Overlay
             bio.bioOverlay.show();
-            bio.bioOverlay.addClass('fadeIn').one('animationend webkitAnimationEnd', function() {
+            bio.bioOverlay.addClass('fadeIn').one('animationend', function() {
                 $(this).removeClass('fadeIn');
             });
             // Adding the animation class
-            bio.sideBar.addClass('bioSideBarOpen').one('animationend webkitAnimationEnd', function() {
+            bio.sideBar.addClass('bioSideBarOpen').one('animationend', function() {
                 // When the animation is finished it will remove to class
                 $(this).removeClass('bioSideBarOpen');
             });
@@ -77,66 +77,67 @@ $(document).ready(function() {
     }
     $('.closeSideBar').on('click', function(e) {
         e.preventDefault();
-        bio.sideBar.addClass('bioSideBarClose').one('animationend webkitAnimationEnd', function() {
+        bio.sideBar.addClass('bioSideBarClose').one('animationend', function() {
             // When the animation is finished it will remove to class
             // bio.bioOverlay.addClass('fadeOut', function() {
             $(this).removeClass('bioSideBarClose');
         });
-        bio.bioOverlay.addClass('fadeOut').one('animationend webkitanimationend', function() {
+        bio.bioOverlay.addClass('fadeOut').one('animationend', function() {
             $(this).removeClass('fadeOut');
+            $(this).hide();
         });
+        $('body').removeClass('stopScrolling');
     });
-    $('body').removeClass('stopScrolling');
-// });
+    // });
 
-$('.james .learnMore').on('click', bio.showBio(), function() {
-    bio.headShot.attr('src', bio.james['pic']);
-    bio.memberName.text(bio.james['name']);
-    bio.memberRole.text(bio.james['role']);
-    bio.smallBio.text(bio.james['bio']);
-});
-$('.eric .learnMore').on('click', bio.showBio(), function() {
-    bio.headShot.attr('src', bio.eric['pic']);
-    bio.memberName.text(bio.eric['name']);
-    bio.memberRole.text(bio.eric['role']);
-    bio.smallBio.text(bio.eric['bio']);
-});
-$('.wahid .learnMore').on('click', bio.showBio(), function() {
-    bio.headShot.attr('src', bio.wahid['pic']);
-    bio.memberName.text(bio.wahid['name']);
-    bio.memberRole.text(bio.wahid['role']);
-    bio.smallBio.text(bio.wahid['bio']);
-});
+    $('.james .learnMore').on('click', bio.showBio(), function() {
+        bio.headShot.attr('src', bio.james['pic']);
+        bio.memberName.text(bio.james['name']);
+        bio.memberRole.text(bio.james['role']);
+        bio.smallBio.text(bio.james['bio']);
+    });
+    $('.eric .learnMore').on('click', bio.showBio(), function() {
+        bio.headShot.attr('src', bio.eric['pic']);
+        bio.memberName.text(bio.eric['name']);
+        bio.memberRole.text(bio.eric['role']);
+        bio.smallBio.text(bio.eric['bio']);
+    });
+    $('.wahid .learnMore').on('click', bio.showBio(), function() {
+        bio.headShot.attr('src', bio.wahid['pic']);
+        bio.memberName.text(bio.wahid['name']);
+        bio.memberRole.text(bio.wahid['role']);
+        bio.smallBio.text(bio.wahid['bio']);
+    });
 
-// Calling show bio
-form = {};
-form.emailButton = $('.emailButton');
-form.container = $('.emailForm');
-form.content = $('.formContainer')
-form.close = $('.formClose');
-// Caching the vars
-form.emailButton.on('click', function(e) {
-    e.preventDefault();
-    form.container.show()
-    form.container.addClass('fadeIn').one('animationend', function() {
-        $(this).removeClass('fadeIn');
+    // Calling show bio
+    form = {};
+    form.emailButton = $('.emailButton');
+    form.container = $('.emailForm');
+    form.content = $('.formContainer')
+    form.close = $('.formClose');
+    // Caching the vars
+    form.emailButton.on('click', function(e) {
+        e.preventDefault();
+        form.container.show()
+        form.container.addClass('fadeIn').one('animationend', function() {
+            $(this).removeClass('fadeIn');
+        });
+        form.content.addClass('formOpeningAnimated').one('animationend', function() {
+            $(this).removeClass('formOpeningAnimated');
+        });
+        $('body').addClass('stopScrolling');
     });
-    form.content.addClass('formOpeningAnimated').one('animationend', function() {
-        $(this).removeClass('formOpeningAnimated');
+    // Form opening end
+    form.close.on('click', function(e) {
+        e.preventDefault();
+        form.content.addClass('formClosingAnimated').one('animationend', function() {
+            $(this).removeClass('formClosingAnimated');
+        });
+        form.container.addClass('fadeOut').one('animationend', function() {
+            $(this).removeClass('fadeOut');
+            $(this).hide();
+        });
+        $('body').removeClass('stopScrolling');
     });
-    $('body').addClass('stopScrolling');
-});
-// Form opening end
-form.close.on('click', function(e) {
-e.preventDefault();
-form.content.addClass('formClosingAnimated').one('animationend', function() {
-    $(this).removeClass('formClosingAnimated');
-});
-form.container.addClass('fadeOut').one('animationend', function() {
-    $(this).removeClass('fadeOut');
-    $(this).hide();
-});
-$('body').removeClass('stopScrolling');
-});
 });
 // Document Ready end
