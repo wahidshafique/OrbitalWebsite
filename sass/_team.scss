@@ -1,0 +1,126 @@
+.theTeam {
+    text-align: center;
+    padding-bottom: em(100);
+    h2 {
+        margin-bottom: em(30);
+    }
+    .imgContainer {
+        position: relative;
+        display: inline-block;
+        width: span(4 of 12);
+        @include responsive(tablet) {
+            width: span(6 of 6);
+            display: block;
+        }
+        img {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+    .teamOverlay {
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.80);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        transition: opacity ease-out 0.3s;
+        color: white;
+        .container {
+            position: absolute;
+            top: 40%;
+            left: 0;
+            right: 0;
+            transform: translateY(-40%);
+            h3 {
+                font-size: 3vw;
+            }
+            h4 {
+                font-size: 2vw;
+            }
+            .learnMore {
+                font-size: 1.8vw;
+            }
+            @include responsive(tablet) {
+                h3 {
+                    font-size: em(35);
+                }
+                h4 {
+                    font-size: em(25);
+                }
+                .learnMore {
+                    font-size: em(20);
+                }
+            }
+        }
+        a {
+            text-decoration: none;
+            font-size: em(30);
+            color: inherit;
+            transition: all ease-in-out 0.5s;
+            &:hover {
+                background: #fff;
+                color: black;
+            }
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.bioOverlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.70);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    display: none;
+}
+
+.bioSideBar {
+    background: black;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: span(5 of 12);
+    @include responsive(mobile) {
+        width: span(6 of 6);
+        img {
+            width: 50%;
+        }
+        h4 {
+            font-size: em(30);
+        }
+        h3 {
+            font-size: em(20);
+        }
+    }
+}
+
+.closeSideBar {
+    @include modalClose();
+    background: none;
+    transition: all ease-in 0.5s;
+    color: white;
+    left: em(10);
+    top: em(5);
+    &:hover {
+        background: white;
+        color: black;
+    }
+}
+
+.bioSideBarOpen {
+    @include slideInRight( $delay: 0.3s, $duration: 1.5s);
+    transform: $animationFix;
+}
+
+.bioSideBarClose {
+    @include slideOutRight();
+    transform: $animationFix;
+}

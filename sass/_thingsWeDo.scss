@@ -1,0 +1,38 @@
+@import '_mixVarFunc.scss';
+.thingsWeDo {
+    @include clearfix;
+    width: span(12 of 12);
+    background: $darkerWhite;
+    padding: em(100) 0;
+    h2 {
+    	margin-bottom: em(25);
+        text-align: center;
+    }
+    .columnContainer{
+    	width: span(10 of 12);
+    	margin: 0 auto;
+    }
+    .col1,
+    .col2 {
+        @include span(4 of 12)
+    }
+    .col1 {
+        text-align: left;
+    }
+    .col2 {
+        text-align: center;
+    }
+    .col3 {
+        @include span(4 of 12 last);
+        text-align: right;
+    }
+    .fa{
+    	font-size: em(70);
+    }
+    .col1,.col2,.col3{
+        @include responsive(tablet){
+            width:100%;
+            text-align: center;
+        }
+    }
+}

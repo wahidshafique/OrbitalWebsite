@@ -1,0 +1,29 @@
+@import '_mixVarFunc.scss';
+.aboutUs {
+    background: $darkerWhite;
+    padding: 1px;
+    width: span(12 of 12);
+    padding: 10% em(50);
+    margin-bottom: 10em;
+    @include clearfix;
+    h2 {
+        @include span(3 of 12);
+        padding-left: span(1 of 12);
+        @include responsive(tablet) {
+            @include span(6 of 6);
+            text-align: center;
+            float: none;
+        }
+    }
+    p {
+        font-size: em(28);
+        text-align: justify;
+        @include span(9 of 12 last);
+        @include responsive(tablet){
+        	text-align: center;
+        	float: none;
+        	width: span(6 of 6); 
+        	font-size: em(20);
+        }
+    }
+}

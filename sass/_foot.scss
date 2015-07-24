@@ -1,0 +1,17 @@
+footer{
+	background: $darkerWhite;
+	padding: 1px;
+	text-align: center;
+	h5,h6{ 
+		display: inline-block;
+	 font-size: em(15);
+	 margin: em(30) em(10);
+	 font-weight: 200;
+	}
+	h5{
+		@include responsive(tablet){
+			margin-top: em(0);
+			padding-bottom: em(30);
+		}
+	}
+}
