@@ -1,6 +1,3 @@
 node_modules/
-sass/
-package.json
-gulpfile.js
 .rev
 dploy.yaml
