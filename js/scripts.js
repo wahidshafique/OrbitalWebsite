@@ -65,11 +65,11 @@ $(document).ready(function() {
             $('body').addClass('stopScrolling');
             // Displays Overlay
             bio.bioOverlay.show();
-            bio.bioOverlay.addClass('fadeIn').one('animationend', function() {
+            bio.bioOverlay.addClass('fadeIn').one('animationend webkitAnimationEnd', function() {
                 $(this).removeClass('fadeIn');
             });
             // Adding the animation class
-            bio.sideBar.addClass('bioSideBarOpen').one('animationend', function() {
+            bio.sideBar.addClass('bioSideBarOpen').one('animationend webkitAnimationEnd', function() {
                 // When the animation is finished it will remove to class
                 $(this).removeClass('bioSideBarOpen');
             });
@@ -77,12 +77,12 @@ $(document).ready(function() {
     }
     $('.closeSideBar').on('click', function(e) {
         e.preventDefault();
-        bio.sideBar.addClass('bioSideBarClose').one('animationend', function() {
+        bio.sideBar.addClass('bioSideBarClose').one('animationend webkitAnimationEnd', function() {
             // When the animation is finished it will remove to class
             // bio.bioOverlay.addClass('fadeOut', function() {
             $(this).removeClass('bioSideBarClose');
         });
-        bio.bioOverlay.addClass('fadeOut').one('animationend', function() {
+        bio.bioOverlay.addClass('fadeOut').one('animationend webkitAnimationEnd', function() {
             $(this).removeClass('fadeOut');
             $(this).hide();
         });
@@ -119,10 +119,10 @@ $(document).ready(function() {
     form.emailButton.on('click', function(e) {
         e.preventDefault();
         form.container.show()
-        form.container.addClass('fadeIn').one('animationend', function() {
+        form.container.addClass('fadeIn').one('animationend webkitAnimationEnd', function() {
             $(this).removeClass('fadeIn');
         });
-        form.content.addClass('formOpeningAnimated').one('animationend', function() {
+        form.content.addClass('formOpeningAnimated').one('animationend webkitAnimationEnd', function() {
             $(this).removeClass('formOpeningAnimated');
         });
         $('body').addClass('stopScrolling');
@@ -130,10 +130,10 @@ $(document).ready(function() {
     // Form opening end
     form.close.on('click', function(e) {
         e.preventDefault();
-        form.content.addClass('formClosingAnimated').one('animationend', function() {
+        form.content.addClass('formClosingAnimated').one('animationend webkitAnimationEnd', function() {
             $(this).removeClass('formClosingAnimated');
         });
-        form.container.addClass('fadeOut').one('animationend', function() {
+        form.container.addClass('fadeOut').one('animationend webkitAnimationEnd', function() {
             $(this).removeClass('fadeOut');
             $(this).hide();
         });
