@@ -88,7 +88,7 @@
     overflow: scroll;
     @include responsive(tablet) {
         width: 100%;
-        top: 0;
+        top: 50px;
         bottom: 0;
         border-radius: 0;
     }
@@ -161,12 +161,12 @@
     }
 }
 
-.formOpeningAnimated {
-    @include slideInUp($delay: 1s);
-    transform: $animationFix;
-}
+// .formOpeningAnimated {
+//     @include slideInUp($delay: 1s);
+//     transform: $animationFix;
+// }
 
-.formClosingAnimated {
-    @include slideOutDown();
-    transform: $animationFix;
-}
+// .formClosingAnimated {
+//     @include slideOutDown();
+//     transform: $animationFix;
+// }

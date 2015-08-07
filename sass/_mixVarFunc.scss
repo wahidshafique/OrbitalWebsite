@@ -5,12 +5,12 @@ $animationFix: translateZ(0);
 // Placeholder style mixin
 // fade in for on click classes
 .fadeIn {
-    @include fadeIn($duration: 2s);
+    @include fadeIn($duration: 1s);
     transform: $animationFix;
 }
 
 .fadeOut {
-    @include fadeOut($duration: 2s);
+    @include fadeOut($duration: 1s);
     transform: $animationFix;
 }
 

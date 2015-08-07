@@ -10,32 +10,23 @@
 </head>
 
 <body>
-    <div class="loaderWrapper">
-        <div class="loader"></div>
-        <div class="loaderSection"></div>
-    </div>
-    <header class="hero">
-        <div class="overlay">
-            <div class="navContent">
-                <ul>
-                    <li><a href="#contactUs">Contact <span>Us</span></a></li>
-                    <li><a href="#thingsWeDo">What We <span>Do</span></a></li>
-                    <li><a href="#theTeam">The <span>Team</span></a></li>
-                    <li><a href="#aboutUs">About <span>Us</span></a></li>
+    <nav class="nav">
+        <div class="navList">
+            <div class="alignLeft">
+                <img src="img/Orbital-Logo-for-us-on-coloured-background.svg" alt="">
+            </div>
+            <div class="list">
+                <ul class="alignRight">
+                    <li><a href="#aboutUs">About</a></li>
+                    <li><a href="#theTeam">Team</a></li>
+                    <li><a href="#contactUs">Contact</a></li>
+                    <li><a href="./blog">Blog</a></li>
                 </ul>
             </div>
         </div>
+    </nav>
+    <header class="hero">
         <h1>We're Web <span class="headerLastWord">Developers</span></h1>
-        <nav class="navBar">
-            <div class="logo">
-                <img src="img/Orbital-Logo-for-us-on-coloured-background.svg" alt="">
-            </div>
-            <div class="navMenu">
-                <img src="img/mobileMenu.svg" alt="" class="navButton">
-            </div>
-            <!-- NavMenu end -->
-        </nav>
-        <!-- Nav End -->
     </header>
     <div class="contentWrapper">
         <div class="aboutUs" id="aboutUs">
@@ -86,12 +77,16 @@
             <!-- Team Container end -->
             <div class="bioOverlay">
                 <div class="bioSideBar">
-                    <img src="" alt="" class="headShot">
-                    <h4 class="memberName">Test</h4>
-                    <h5 class="memberRole">Test</h5>
-                    <p class="smallBio">Test</p>
-                    <a href="" class="closeSideBar"></a>
+                    <div class="headShotLeft">
+                        <img src="" alt="" class="headShot">
+                    </div>
+                    <div class="description">
+                        <h4 class="memberName">Test</h4>
+                        <h5 class="memberRole">Test</h5>
+                        <p class="smallBio">Test</p>
+                    </div>
                 </div>
+                <a href="" class="closeSideBar"></a>
             </div>
         </div>
         <!-- The Team End -->

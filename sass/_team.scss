@@ -80,24 +80,48 @@
     color: #fff;
     display: none;
 }
-
 .bioSideBar {
-    background: black;
+    width: 80%;
+    margin: 0 auto;
     position: absolute;
+    top: 20vh;
+    left: 0;
     right: 0;
-    top: 0;
-    bottom: 0;
-    width: span(5 of 12);
     @include responsive(mobile) {
-        width: span(6 of 6);
+        width: 100%;
+        top: 20%;
+    }
+    .headShotLeft {
+        @include span(6 of 6);
+        float: none;
+        display: inline-block;
         img {
-            width: 50%;
+            @include responsive(mobile) {
+                width: 30%;
+            }
+        }
+    }
+    .description {
+        @include span(4 of 12 last);
+        float: none;
+        display: inline-block;
+        @include responsive (mobile) {
+            @include span(6 of 6);
         }
         h4 {
-            font-size: em(30);
+            @include responsive (mobile) {
+                font-size: em(30);
+            }
         }
-        h3 {
-            font-size: em(20);
+        h5 {
+            @include responsive (mobile) {
+                font-size: em(25);
+            }
+        }
+        p {
+            @include responsive (mobile) {
+                font-size: em(20);
+            }
         }
     }
 }
@@ -105,22 +129,38 @@
 .closeSideBar {
     @include modalClose();
     background: none;
-    transition: all ease-in 0.5s;
-    color: white;
-    left: em(10);
-    top: em(5);
+    color: #CFCFCF;
+    left: 5%;
+    top: 5vh;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    @include responsive(mobile) {
+        top: 10vh;
+        height: 30px;
+        width: 30px;
+        line-height: 30px;
+        &::after {
+            font-size: 30px;
+        }
+    }
+    &::after {
+        height: initial;
+        width: initial;
+        font-size: 100px;
+    }
     &:hover {
-        background: white;
-        color: black;
+        background: none;
+        color: #fff;
     }
 }
 
 .bioSideBarOpen {
-    @include slideInRight( $delay: 0.3s, $duration: 1.5s);
+    // @include slideInRight( $delay: 0.3s, $duration: 1.5s);
     transform: $animationFix;
 }
 
 .bioSideBarClose {
-    @include slideOutRight();
+    // @include slideOutRight();
     transform: $animationFix;
 }

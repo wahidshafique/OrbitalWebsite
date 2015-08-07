@@ -1,34 +1,21 @@
 // Stuff for nav
 $(document).ready(function() {
-    $('.navContent a').smoothScroll({
-        offset: -20,
+   var scrollPosition =0;
+   var windowHeight = $(window).height();
+   $(window).scroll(function(){
+    if($(this).scrollTop() > windowHeight){
+        $('.nav').css('background', '#292929')
+    } else {
+        $('.nav').css('background', 'none');
+    }
+   });
+    $('.nav .navList a').smoothScroll({
+        offset: -65,
         autoCoefficient: 2,
         ease: 'ease-out',
         speed: 1000
     });
-    nav = {};
-    nav.button = $('.navButton');
-    // Overlay stuff
-    overlay = {};
-    overlay.background = $('.overlay');
-    overlay.list = $('.navContent li');
-    nav.listItem = $('.navContent a');
-    // Function for navs click behavior
-    nav.clickMe = function() {
-            nav.button.on('click', function() {
-                $('body').toggleClass('stopScrolling');
-                overlay.background.fadeToggle(500);
-                // overlay.list.slideToggle(1000);
-                overlay.list.css('transform', 'translateZ(0)');
-            });
-        }
-        // Calling the listener
-    nav.clickMe();
-    nav.listItem.on('click', function() {
-        $('body').removeClass('stopScrolling');
-        overlay.background.fadeToggle(0);
-    });
-    // Stuff for nav end
+    nav = {};    
     bio = {};
     // Cache variables 
     bio.learnMore = $('.learnMore');
@@ -77,11 +64,6 @@ $(document).ready(function() {
     }
     $('.closeSideBar').on('click', function(e) {
         e.preventDefault();
-        bio.sideBar.addClass('bioSideBarClose').one('animationend webkitAnimationEnd', function() {
-            // When the animation is finished it will remove to class
-            // bio.bioOverlay.addClass('fadeOut', function() {
-            $(this).removeClass('bioSideBarClose');
-        });
         bio.bioOverlay.addClass('fadeOut').one('animationend webkitAnimationEnd', function() {
             $(this).removeClass('fadeOut');
             $(this).hide();
@@ -122,17 +104,11 @@ $(document).ready(function() {
         form.container.addClass('fadeIn').one('animationend webkitAnimationEnd', function() {
             $(this).removeClass('fadeIn');
         });
-        form.content.addClass('formOpeningAnimated').one('animationend webkitAnimationEnd', function() {
-            $(this).removeClass('formOpeningAnimated');
-        });
         $('body').addClass('stopScrolling');
     });
     // Form opening end
     form.close.on('click', function(e) {
         e.preventDefault();
-        form.content.addClass('formClosingAnimated').one('animationend webkitAnimationEnd', function() {
-            $(this).removeClass('formClosingAnimated');
-        });
         form.container.addClass('fadeOut').one('animationend webkitAnimationEnd', function() {
             $(this).removeClass('fadeOut');
             $(this).hide();
