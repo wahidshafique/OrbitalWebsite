@@ -80,6 +80,7 @@
     color: #fff;
     display: none;
 }
+
 .bioSideBar {
     width: 80%;
     margin: 0 auto;
@@ -92,12 +93,13 @@
         top: 20%;
     }
     .headShotLeft {
-        @include span(6 of 6);
+        @include span(4 of 12);
         float: none;
         display: inline-block;
         img {
-            @include responsive(mobile) {
-                width: 30%;
+            @include responsive(tablet) {
+                @include span(6 of 6);
+                // width: 30%;
             }
         }
     }
@@ -105,7 +107,7 @@
         @include span(4 of 12 last);
         float: none;
         display: inline-block;
-        @include responsive (mobile) {
+        @include responsive (tablet) {
             @include span(6 of 6);
         }
         h4 {
